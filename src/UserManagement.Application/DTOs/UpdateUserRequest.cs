@@ -11,5 +11,6 @@ public sealed record UpdateUserRequest
     [Required, EmailAddress, MaxLength(User.EmailMaxLength)]
     public string Email { get; init; } = string.Empty;
 
-    public bool IsActive { get; init; }
+    [Required]
+    public bool? IsActive { get; init; }
 }

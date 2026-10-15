@@ -20,7 +20,7 @@ public sealed class UpdateUserUseCase(
         if (await userRepository.EmailExistsAsync(email, excludeUserId: userId, cancellationToken))
             throw new ConflictException($"El email '{email}' ya esta en uso por otro usuario.");
 
-        user.Update(request.FullName, request.Email, request.IsActive, timeProvider.GetUtcNow().UtcDateTime);
+        user.Update(request.FullName, request.Email, request.IsActive!.Value, timeProvider.GetUtcNow().UtcDateTime);
         await unitOfWork.SaveChangesAsync(cancellationToken);
 
         return user.ToDto();
