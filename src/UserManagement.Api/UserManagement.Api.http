@@ -1,6 +1,28 @@
-@UserManagement.Api_HostAddress = http://localhost:5074
+@host = http://localhost:5074
+@consultaUserId = c65c123f-10e1-4abe-b96a-cad13d8c790c
 
-GET {{UserManagement.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+# @name token
+POST {{host}}/api/v1/auth/token
+Content-Type: application/json
+
+{
+  "email": "admin@demo.com",
+  "password": "Admin123!"
+}
 
 ###
+
+GET {{host}}/api/v1/users?page=1&pageSize=10
+Authorization: Bearer {{token.response.body.accessToken}}
+
+###
+
+PUT {{host}}/api/v1/users/{{consultaUserId}}
+Authorization: Bearer {{token.response.body.accessToken}}
+Content-Type: application/json
+
+{
+  "fullName": "Usuario Consulta",
+  "email": "consulta@demo.com",
+  "isActive": true
+}
