@@ -33,7 +33,7 @@ dotnet run --project src/UserManagement.Api
 1. `docker compose up -d` levanta Oracle. El primer arranque tarda 1–2 minutos; espera a que `docker compose ps` muestre `healthy`.
 2. `dotnet tool restore` instala `dotnet-ef` en la versión del repositorio.
 3. `dotnet ef database update` aplica las migraciones: crea el esquema y carga los usuarios de prueba.
-4. `dotnet run` levanta la API en `http://localhost:5201`. Swagger: `http://localhost:5201/swagger`.
+4. `dotnet run` levanta la API en `http://localhost:5074`. Swagger: `http://localhost:5074/swagger`.
 
 Para usar otra instancia de Oracle 23, crea el usuario `app` con esos datos o cambia la cadena de conexión.
 

@@ -16,7 +16,7 @@ public static class SwaggerExtensions
                 Type = SecuritySchemeType.Http,
                 Scheme = "bearer",
                 BearerFormat = "JWT",
-                Description = "Pega aquí el accessToken que devuelve /api/auth/login (sin escribir 'Bearer').",
+                Description = "Pega aquí el accessToken que devuelve /api/v1/auth/token (sin escribir 'Bearer').",
                 Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
             };
 
