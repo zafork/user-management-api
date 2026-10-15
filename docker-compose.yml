@@ -1,0 +1,21 @@
+services:
+  db:
+    image: gvenzl/oracle-free:23.26.3-slim
+    container_name: usermanagement-db
+    environment:
+      ORACLE_PASSWORD: OraclePass123
+      APP_USER: app
+      APP_USER_PASSWORD: AppPass123
+    ports:
+      - "1521:1521"
+    volumes:
+      - oradata:/opt/oracle/oradata
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
+volumes:
+  oradata:
